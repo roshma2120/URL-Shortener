@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- JS -->
+    <script defer src="{{ url_for('static', filename='script/script.js') }}"></script>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Professional URL Shortener</h1>
+            <p>Shorten your long URLs instantly and easily!</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+
+            <!-- IMPORTANT: FORM -->
+            <form method="POST" class="url-form">
+                <input 
+                    type="text" 
+                    name="long_url" 
+                    placeholder="Enter your long URL"
+                    required
+                >
+                <button type="submit">Shorten URL</button>
+            </form>
+
+            <!-- RESULT -->
+            {% if short_url %}
+                <div id="result" class="result">
+                    <p>Short URL:</p>
+                    <a href="{{ short_url }}" target="_blank">{{ short_url }}</a>
+                </div>
+            {% endif %}
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 YourName. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
